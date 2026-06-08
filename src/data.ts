@@ -84,5 +84,17 @@ export const CV_DATA = {
     "IBM: Introduction to Containers, Kubernetes & OpenShift V2 (2025)",
     "Cisco Data Analytics Essentials | Infosys Cybersecurity Fundamentals (2026)",
     "IBM Network Security | IBM SkillsBuild (2026)"
+  ],
+  trainingSimulations: [
+    {
+      title: "AWS - Solutions Architecture Job Simulation",
+      period: "2026",
+      description: "Designed a scalable AWS Elastic Beanstalk architecture for a high-growth client dealing with slow response times then translated the technical proposal into plain language so the client could understand the setup and cost structure without needing a cloud background."
+    },
+    {
+      title: "BCG - GenAI Job Simulation",
+      period: "2026",
+      description: "BCGx Chatbot\n\nBuilt an AI-powered financial chatbot for a simulated BCG consulting project — extracted 10-K data for Microsoft, Apple & Tesla, analyzed 3-year trends using Python/pandas, and developed a rule-based NLP chatbot mapping financial queries to real SEC-sourced insights."
+    }
   ]
 };

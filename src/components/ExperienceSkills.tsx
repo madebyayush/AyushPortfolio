@@ -70,6 +70,37 @@ export function ExperienceSkills() {
                 ))}
               </ul>
             </motion.div>
+
+            {/* Training & Simulations */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="mt-16 mb-8"
+            >
+              <h2 className="text-2xl font-display font-bold uppercase tracking-tight mb-2">Training & Simulations</h2>
+              <div className="h-1 w-12 bg-brand-accent-2" />
+            </motion.div>
+
+            <div className="space-y-8">
+              {CV_DATA.trainingSimulations.map((sim, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="relative pl-8 border-l border-slate-700 hover:border-brand-accent-2 transition-colors duration-500"
+                >
+                  <div className="absolute w-3 h-3 bg-brand-bg border-2 border-brand-accent-2 rounded-full -left-[6.5px] top-1.5" />
+                  <h3 className="text-lg font-bold text-white">{sim.title}</h3>
+                  <div className="text-brand-accent-2 font-mono text-xs mb-3">{sim.period}</div>
+                  <p className="text-slate-400 text-sm leading-relaxed whitespace-pre-line">
+                    {sim.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           {/* Skills Section */}

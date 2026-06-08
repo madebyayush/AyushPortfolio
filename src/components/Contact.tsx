@@ -5,7 +5,7 @@ import { CV_DATA } from '../data';
 export function Contact() {
   const handleDownloadCV = () => {
     import('jspdf').then(({ default: jsPDF }) => {
-      const { personal, skills, experience, education, projects, certifications } = CV_DATA;
+      const { personal, skills, experience, education, projects, certifications, trainingSimulations } = CV_DATA;
       const doc = new jsPDF();
       
       let y = 20;
@@ -84,6 +84,24 @@ export function Contact() {
       certifications.forEach(cert => {
         addText(`• ${cert}`, 10);
       });
+      y += 5;
+
+      // Training & Simulations
+      if (trainingSimulations) {
+        addText("TRAINING & SIMULATIONS", 14, true, [59, 130, 246]);
+        y += 2;
+        trainingSimulations.forEach(sim => {
+          addText(`${sim.title} (${sim.period})`, 12, true);
+          sim.description.split('\n').forEach(line => {
+            if (line.trim()) {
+              addText(line, 10);
+            } else {
+              y += 2;
+            }
+          });
+          y += 3;
+        });
+      }
 
       doc.save('Ayush_Anand_CV.pdf');
     });
