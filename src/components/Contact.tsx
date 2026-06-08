@@ -1,112 +1,9 @@
 import { motion } from 'motion/react';
 import { Mail, Linkedin, Github, Phone, Download, ArrowUpRight } from 'lucide-react';
 import { CV_DATA } from '../data';
+import resumePdf from '../assets/resume.pdf';
 
 export function Contact() {
-  const handleDownloadCV = () => {
-    import('jspdf').then(({ default: jsPDF }) => {
-      const { personal, skills, experience, education, projects, certifications, trainingSimulations } = CV_DATA;
-      const doc = new jsPDF();
-      
-      let y = 20;
-      const lineHeight = 7;
-      const margin = 20;
-      const pageWidth = doc.internal.pageSize.width;
-      const maxWidth = pageWidth - margin * 2;
-
-      const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0] as [number, number, number]) => {
-        doc.setFont("helvetica", isBold ? "bold" : "normal");
-        doc.setFontSize(fontSize);
-        doc.setTextColor(color[0], color[1], color[2]);
-        const lines = doc.splitTextToSize(text, maxWidth);
-        
-        if (y + lines.length * lineHeight > doc.internal.pageSize.height - margin) {
-          doc.addPage();
-          y = margin;
-        }
-        
-        doc.text(lines, margin, y);
-        y += lines.length * lineHeight;
-      };
-
-      // Header
-      addText(personal.name.toUpperCase(), 24, true);
-      y -= 2;
-      addText(personal.role, 12, false, [100, 100, 100]);
-      y += 5;
-
-      // Contact Info
-      addText(`Email: ${personal.email} | Phone: ${personal.phone}`, 10);
-      addText(`LinkedIn: ${personal.linkedin} | GitHub: ${personal.github}`, 10);
-      y += 10;
-
-      // Skills
-      addText("TECHNICAL SKILLS", 14, true, [59, 130, 246]); // Brand color 1 rough equivalent
-      y += 2;
-      Object.entries(skills).forEach(([category, items]) => {
-        addText(`${category}: ${items.join(', ')}`, 10);
-        y += 2;
-      });
-      y += 5;
-
-      // Experience
-      addText("PROFESSIONAL EXPERIENCE", 14, true, [59, 130, 246]);
-      y += 2;
-      experience.forEach(exp => {
-        addText(`${exp.title} | ${exp.company}`, 12, true);
-        addText(exp.period, 10, false, [100, 100, 100]);
-        exp.points.forEach(p => {
-          addText(`• ${p}`, 10);
-        });
-        y += 5;
-      });
-
-      // Projects
-      addText("SELECTED PROJECTS", 14, true, [59, 130, 246]);
-      y += 2;
-      projects.forEach(proj => {
-        addText(`${proj.title} - ${proj.subtitle}`, 12, true);
-        addText(proj.description, 10);
-        addText(`Link: ${proj.link}`, 10, false, [59, 130, 246]);
-        y += 5;
-      });
-
-      // Education
-      addText("EDUCATION", 14, true, [59, 130, 246]);
-      y += 2;
-      addText(education.institution, 12, true);
-      addText(`${education.degree} (${education.period})`, 10);
-      y += 5;
-
-      // Certifications
-      addText("CERTIFICATIONS & ACHIEVEMENTS", 14, true, [59, 130, 246]);
-      y += 2;
-      certifications.forEach(cert => {
-        addText(`• ${cert}`, 10);
-      });
-      y += 5;
-
-      // Training & Simulations
-      if (trainingSimulations) {
-        addText("TRAINING & SIMULATIONS", 14, true, [59, 130, 246]);
-        y += 2;
-        trainingSimulations.forEach(sim => {
-          addText(`${sim.title} (${sim.period})`, 12, true);
-          sim.description.split('\n').forEach(line => {
-            if (line.trim()) {
-              addText(line, 10);
-            } else {
-              y += 2;
-            }
-          });
-          y += 3;
-        });
-      }
-
-      doc.save('Ayush_Anand_CV.pdf');
-    });
-  };
-
   const contactLinks = [
     {
       name: 'Email',
@@ -197,13 +94,14 @@ export function Contact() {
           transition={{ delay: 0.4 }}
           className="flex justify-center"
         >
-          <button 
-            onClick={handleDownloadCV}
+          <a 
+            href={resumePdf}
+            download="Ayush_Anand_Resume.pdf"
             className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-brand-bg rounded-full font-bold text-lg hover:bg-brand-accent-1 hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
           >
             <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             Download Full CV
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
