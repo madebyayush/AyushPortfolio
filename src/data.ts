@@ -79,11 +79,23 @@ export const CV_DATA = {
     period: "2023 – 2027"
   },
   certifications: [
+    "Cybersecurity and Networking Fundamentals (Apr 2024)",
+    "Enterprise Security: Artificial Intelligence, Generative AI, & Cybersecurity (Jul 2024)",
+    "Infosys Certified Cybersecurity and Networking Fundamentals (Jul 2024)",
+    "Infosys Certified Enterprise Security: Artificial Intelligence, Generative AI, & Cybersecurity (Jul 2024)",
+    "Generative AI in Action (Jul 2024)",
+    "Spark Fundamentals I (Jan 2025)",
+    "Big Data Foundations - Level 1 (Feb 2025)",
+    "Hadoop 101 (Feb 2025)",
+    "Big Data 101 (Feb 2025)",
+    "IBM: Introduction to Containers, Kubernetes, and OpenShift V2 (Mar 2025)",
     "ELITE Top 5%: NPTEL Affective Computing (IIT Madras) – Score: 94/100 (2026)",
-    "AWS Solutions Architecture & Cloud Practitioner Essentials (2026)",
-    "IBM: Introduction to Containers, Kubernetes & OpenShift V2 (2025)",
-    "Cisco Data Analytics Essentials | Infosys Cybersecurity Fundamentals (2026)",
-    "IBM Network Security | IBM SkillsBuild (2026)"
+    "AWS Solutions Architecture (2026)",
+    "Cisco Introduction to Data Science (Feb 2026)",
+    "Cisco Exploring Networking with Cisco Packet Tracer (Feb 2026)",
+    "IBM Network Security (ALM-COURSE_4058892) (Feb 2026)",
+    "AWS Cloud Practitioner Essentials (Feb 2026)",
+    "Cisco Data Analytics Essentials (Feb 2026)"
   ],
   trainingSimulations: [
     {
