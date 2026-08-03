@@ -198,13 +198,14 @@ export function Contact() {
           transition={{ delay: 0.4 }}
           className="flex justify-center"
         >
-          <button 
-            onClick={handleDownloadCV}
+          <a 
+            href="/resume.pdf"
+            download="Ayush_Anand_Resume.pdf"
             className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-brand-bg rounded-full font-bold text-lg hover:bg-brand-accent-1 hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
           >
             <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             Download Full CV
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
