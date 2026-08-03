@@ -32,7 +32,7 @@ export function ExperienceSkills() {
                 >
                   <div className="absolute w-3 h-3 bg-brand-bg border-2 border-brand-accent-2 rounded-full -left-[6.5px] top-1.5" />
                   <h3 className="text-xl font-bold text-white">{exp.title}</h3>
-                  <div className="text-brand-accent-2 font-mono text-sm mb-4">{exp.company} • {exp.period}</div>
+                  <div className="text-brand-accent-2 font-mono text-sm mb-4">{exp.company} • {exp.period}{exp.location ? ` | ${exp.location}` : ''}</div>
                   <ul className="space-y-3 text-slate-400">
                     {exp.points.map((pt, i) => (
                       <li key={i} className="leading-relaxed">{pt}</li>

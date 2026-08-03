@@ -21,6 +21,17 @@ export const CV_DATA = {
   },
   experience: [
     {
+      company: "iOpex Technologies Pvt. Ltd.",
+      title: "AI Intern",
+      period: "Jun 2026 – Sep 2026",
+      location: "Chennai (On-site)",
+      points: [
+        "Building agentic AI workflows and multi-model systems for production use cases, designing RAG pipelines and evaluating retrieval quality across document types.",
+        "Deployed and benchmarked LLMs on internal GPU servers, evaluating trade-offs between model size, latency, and hardware footprint for production serving.",
+        "Worked across the stack from model serving infrastructure to agent orchestration logic, coordinating with engineers on system design decisions."
+      ]
+    },
+    {
       company: "IDBI Bank",
       title: "Software Development Intern",
       period: "Dec 2023 – Feb 2024",
