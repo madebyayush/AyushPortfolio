@@ -3,6 +3,111 @@ import { Mail, Linkedin, Github, Phone, Download, ArrowUpRight } from 'lucide-re
 import { CV_DATA } from '../data';
 
 export function Contact() {
+  const handleDownloadCV = () => {
+    import('jspdf').then(({ default: jsPDF }) => {
+      const { personal, skills, experience, education, projects, certifications, trainingSimulations } = CV_DATA;
+      const doc = new jsPDF();
+      
+      let y = 20;
+      const lineHeight = 6;
+      const margin = 20;
+      const pageWidth = doc.internal.pageSize.width;
+      const maxWidth = pageWidth - margin * 2;
+
+      const addText = (text: string, fontSize: number, isBold = false, color = [0, 0, 0] as [number, number, number]) => {
+        doc.setFont("helvetica", isBold ? "bold" : "normal");
+        doc.setFontSize(fontSize);
+        doc.setTextColor(color[0], color[1], color[2]);
+        const lines = doc.splitTextToSize(text, maxWidth);
+        
+        if (y + lines.length * lineHeight > doc.internal.pageSize.height - margin) {
+          doc.addPage();
+          y = margin;
+        }
+        
+        doc.text(lines, margin, y);
+        y += lines.length * lineHeight;
+      };
+
+      // Header
+      addText(personal.name.toUpperCase(), 22, true);
+      y -= 2;
+      addText(personal.role, 11, false, [100, 100, 100]);
+      y += 4;
+
+      // Contact Info
+      addText(`Email: ${personal.email} | Phone: ${personal.phone}`, 9.5);
+      addText(`LinkedIn: ${personal.linkedin} | GitHub: ${personal.github}`, 9.5);
+      y += 6;
+
+      // Experience
+      addText("PROFESSIONAL EXPERIENCE", 13, true, [59, 130, 246]);
+      y += 2;
+      experience.forEach(exp => {
+        const companyLoc = exp.location ? `${exp.company} • ${exp.location}` : exp.company;
+        addText(`${exp.title} | ${companyLoc}`, 11, true);
+        addText(exp.period, 9.5, false, [100, 100, 100]);
+        exp.points.forEach(p => {
+          addText(`• ${p}`, 9.5);
+        });
+        y += 4;
+      });
+
+      // Skills
+      addText("TECHNICAL SKILLS", 13, true, [59, 130, 246]);
+      y += 2;
+      Object.entries(skills).forEach(([category, items]) => {
+        addText(`${category}: ${items.join(', ')}`, 9.5);
+        y += 1.5;
+      });
+      y += 4;
+
+      // Projects
+      addText("SELECTED PROJECTS", 13, true, [59, 130, 246]);
+      y += 2;
+      projects.forEach(proj => {
+        addText(`${proj.title} - ${proj.subtitle}`, 11, true);
+        addText(proj.description, 9.5);
+        addText(`Link: ${proj.link}`, 9.5, false, [59, 130, 246]);
+        y += 4;
+      });
+
+      // Education
+      addText("EDUCATION", 13, true, [59, 130, 246]);
+      y += 2;
+      addText(education.institution, 11, true);
+      addText(`${education.degree} (${education.period})`, 9.5);
+      y += 4;
+
+      // Certifications
+      addText("CERTIFICATIONS & ACHIEVEMENTS", 13, true, [59, 130, 246]);
+      y += 2;
+      certifications.forEach(cert => {
+        addText(`• ${cert}`, 9.5);
+      });
+      y += 4;
+
+      // Training & Simulations
+      if (trainingSimulations) {
+        addText("TRAINING & SIMULATIONS", 13, true, [59, 130, 246]);
+        y += 2;
+        trainingSimulations.forEach(sim => {
+          addText(`${sim.title} (${sim.period})`, 11, true);
+          sim.description.split('\n').forEach(line => {
+            if (line.trim()) {
+              addText(line, 9.5);
+            } else {
+              y += 1.5;
+            }
+          });
+          y += 3;
+        });
+      }
+
+      doc.save('Ayush_Anand_CV.pdf');
+    });
+  };
+
   const contactLinks = [
     {
       name: 'Email',
@@ -93,14 +198,13 @@ export function Contact() {
           transition={{ delay: 0.4 }}
           className="flex justify-center"
         >
-          <a 
-            href="/resume.pdf"
-            download="Ayush_Anand_Resume.pdf"
+          <button 
+            onClick={handleDownloadCV}
             className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-brand-bg rounded-full font-bold text-lg hover:bg-brand-accent-1 hover:text-white transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
           >
             <Download className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             Download Full CV
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>
