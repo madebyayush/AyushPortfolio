@@ -5,7 +5,7 @@ import chatzyImg from './assets/Chatzy.png';
 export const CV_DATA = {
   personal: {
     name: "Ayush Anand",
-    role: "AI/ML Engineer Intern | Agentic AI & Cloud Orchestration",
+    role: "Software Engineer Exploring AI Systems | LLMOps, Agentic AI & Backend Engineering",
     email: "anandayush1205@gmail.com",
     phone: "+91 8105061205",
     linkedin: "linkedin.com/in/ayushanand-1264032b2",
@@ -25,11 +25,7 @@ export const CV_DATA = {
       title: "AI Intern",
       period: "Jun 2026 – Sep 2026",
       location: "Chennai (On-site)",
-      points: [
-        "Building agentic AI workflows and multi-model systems for production use cases, designing RAG pipelines and evaluating retrieval quality across document types.",
-        "Deployed and benchmarked LLMs on internal GPU servers, evaluating trade-offs between model size, latency, and hardware footprint for production serving.",
-        "Worked across the stack from model serving infrastructure to agent orchestration logic, coordinating with engineers on system design decisions."
-      ]
+      description: "As an AI Intern at iOPEX Technologies, I worked on modern AI systems with a focus on Agentic AI and enterprise-grade intelligent automation. My work involved building and implementing Retrieval-Augmented Generation (RAG) pipelines, Human-in-the-Loop (HITL) workflows, and LLM-powered agent architectures. I gained hands-on experience with multi-agent systems, prompt engineering, tool calling, memory management, vector databases, semantic search, and AI orchestration frameworks. Through practical projects and research, I developed scalable, context-aware AI solutions that combined autonomous reasoning with human oversight to address real-world business challenges. The internship strengthened my understanding of generative AI, LLMOps, and production-oriented AI engineering, including the practical considerations involved in building reliable, efficient, and maintainable AI applications."
     },
     {
       company: "IDBI Bank",
@@ -90,6 +86,14 @@ export const CV_DATA = {
     period: "2023 – 2027"
   },
   certifications: [
+    {
+      title: "SAP Certified - SAP Enterprise Architect",
+      link: "https://www.credly.com/earner/earned/badge/e80baa84-4add-4311-9307-673328484bb7"
+    },
+    {
+      title: "SAP Certified - SAP Generative AI Developer",
+      link: "https://www.credly.com/earner/earned/badge/68eafbc5-069e-45ba-b988-97c4ede8626f"
+    },
     "Cybersecurity and Networking Fundamentals (Apr 2024)",
     "Enterprise Security: Artificial Intelligence, Generative AI, & Cybersecurity (Jul 2024)",
     "Infosys Certified Cybersecurity and Networking Fundamentals (Jul 2024)",

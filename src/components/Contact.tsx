@@ -47,9 +47,14 @@ export function Contact() {
         const companyLoc = exp.location ? `${exp.company} • ${exp.location}` : exp.company;
         addText(`${exp.title} | ${companyLoc}`, 11, true);
         addText(exp.period, 9.5, false, [100, 100, 100]);
-        exp.points.forEach(p => {
-          addText(`• ${p}`, 9.5);
-        });
+        if ('description' in exp && exp.description) {
+          addText(exp.description, 9.5);
+        }
+        if ('points' in exp && exp.points) {
+          exp.points.forEach(p => {
+            addText(`• ${p}`, 9.5);
+          });
+        }
         y += 4;
       });
 
@@ -83,7 +88,9 @@ export function Contact() {
       addText("CERTIFICATIONS & ACHIEVEMENTS", 13, true, [59, 130, 246]);
       y += 2;
       certifications.forEach(cert => {
-        addText(`• ${cert}`, 9.5);
+        const title = typeof cert === 'object' && cert !== null ? cert.title : cert;
+        const link = typeof cert === 'object' && cert !== null ? cert.link : null;
+        addText(`• ${title}${link ? ` (Verify: ${link})` : ''}`, 9.5);
       });
       y += 4;
 

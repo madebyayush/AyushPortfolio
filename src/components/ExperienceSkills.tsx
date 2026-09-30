@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { CV_DATA } from '../data';
+import { ExternalLink } from 'lucide-react';
 
 export function ExperienceSkills() {
   return (
@@ -33,11 +34,18 @@ export function ExperienceSkills() {
                   <div className="absolute w-3 h-3 bg-brand-bg border-2 border-brand-accent-2 rounded-full -left-[6.5px] top-1.5" />
                   <h3 className="text-xl font-bold text-white">{exp.title}</h3>
                   <div className="text-brand-accent-2 font-mono text-sm mb-4">{exp.company} • {exp.period}{exp.location ? ` | ${exp.location}` : ''}</div>
-                  <ul className="space-y-3 text-slate-400">
-                    {exp.points.map((pt, i) => (
-                      <li key={i} className="leading-relaxed">{pt}</li>
-                    ))}
-                  </ul>
+                  {'description' in exp && exp.description && (
+                    <p className="text-slate-400 leading-relaxed text-sm md:text-base mb-3">
+                      {exp.description}
+                    </p>
+                  )}
+                  {'points' in exp && exp.points && (
+                    <ul className="space-y-3 text-slate-400">
+                      {exp.points.map((pt, i) => (
+                        <li key={i} className="leading-relaxed">{pt}</li>
+                      ))}
+                    </ul>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -61,13 +69,36 @@ export function ExperienceSkills() {
               <h3 className="text-lg font-bold text-white">{CV_DATA.education.degree}</h3>
               <p className="text-brand-accent-3 font-mono text-sm mb-6">{CV_DATA.education.institution} • {CV_DATA.education.period}</p>
               
-              <ul className="space-y-2">
-                {CV_DATA.certifications.map((cert, idx) => (
-                  <li key={idx} className="text-slate-400 text-sm flex items-start gap-2">
-                    <span className="text-brand-accent-3 mt-1">▹</span>
-                    {cert}
-                  </li>
-                ))}
+              <ul className="space-y-2.5">
+                {CV_DATA.certifications.map((cert, idx) => {
+                  const isObj = typeof cert === 'object' && cert !== null;
+                  const title = isObj ? cert.title : cert;
+                  const link = isObj ? cert.link : null;
+
+                  return (
+                    <li key={idx} className="text-slate-400 text-sm flex items-start gap-2">
+                      <span className="text-brand-accent-3 mt-1">▹</span>
+                      <span className="leading-relaxed">
+                        {title}
+                        {link && (
+                          <>
+                            {' ('}
+                            <a
+                              href={link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-brand-accent-1 hover:text-brand-accent-2 transition-colors inline-flex items-center gap-0.5 underline font-medium hover:underline"
+                            >
+                              Verify Here
+                              <ExternalLink className="w-3 h-3 ml-0.5 inline" />
+                            </a>
+                            {')'}
+                          </>
+                        )}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </motion.div>
 

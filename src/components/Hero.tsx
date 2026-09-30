@@ -54,7 +54,7 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
           <h2 className="text-sm md:text-base font-bold tracking-[0.3em] text-brand-accent-1 uppercase mb-4">
-            AI / ML Engineer & Orchestration
+            AI Systems & Backend Engineering
           </h2>
         </motion.div>
 
@@ -75,9 +75,9 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 font-light"
+          className="max-w-3xl mx-auto text-lg md:text-xl text-slate-300 font-light leading-relaxed"
         >
-          Building autonomous agents, real-time systems, and scalable full-stack architectures.
+          Software Engineer Exploring AI Systems | LLMOps, Agentic AI &amp; Backend Engineering
         </motion.p>
       </motion.div>
 
