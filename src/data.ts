@@ -13,6 +13,8 @@ export const CV_DATA = {
   },
   skills: {
     "AI/ML & Agentic Systems": ["LLMs", "Agentic AI (Planning, Reflection, ReAct)", "Multi-Agent Systems (MAS)", "RAG", "VectorDB (Pinecone)", "Generative AI"],
+    "Data Analytics & BI": ["Data Analytics", "Business Intelligence", "Dashboard Development", "Data Visualization", "Sales Performance Analytics", "Pharmaceutical Analytics"],
+    "Data Engineering & Automation": ["Data Engineering", "Data Pipeline Development", "ETL Processes", "Workflow Automation", "AI for Business"],
     "Infrastructure & DevOps": ["AWS (EC2, S3, Lambda, Elastic Beanstalk, ECR, API Gateway)", "Azure", "GCP", "Docker", "Kubernetes", "OpenShift", "CI/CD"],
     "Big Data & Security": ["Apache Spark", "Hadoop", "Kafka (basics)", "Network Security", "Cybersecurity", "IAM"],
     "Full-Stack Development": ["Python", "JavaScript (ES6+)", "TypeScript", "Java", "C++", "SQL", "HTML/CSS", "React.js", "Node.js", "Express.js", "FastAPI", "REST APIs"],
