@@ -21,6 +21,13 @@ export const CV_DATA = {
   },
   experience: [
     {
+      company: "AbbVie Inc.",
+      title: "Summer Intern",
+      period: "Oct 2026 – Present",
+      location: "BTS Team",
+      description: "As a Summer Intern at AbbVie Inc., I work on data-driven commercial analytics solutions within the BTS team, focusing on transforming large-scale pharmaceutical sales representative data into actionable business insights. My work involves integrating AI capabilities into data workflows, building and automating data pipelines, processing and analyzing sales data, and developing interactive dashboards for sales performance monitoring and business intelligence. I contribute to streamlining data processing, improving insight generation, and translating complex datasets into meaningful visualizations that support informed, data-driven decision-making. This experience enables me to apply my skills in artificial intelligence, data engineering, and software development to real-world challenges at the intersection of technology, pharmaceutical analytics, and commercial operations."
+    },
+    {
       company: "iOpex Technologies Pvt. Ltd.",
       title: "AI Intern",
       period: "Jun 2026 – Sep 2026",
